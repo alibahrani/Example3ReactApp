@@ -10,7 +10,6 @@ class App extends Component {
       products: [],
       searchField:''
     };
-
   }
 
   handleChange = (e) => {
@@ -18,10 +17,8 @@ class App extends Component {
   }
   
   componentDidMount() {
-    
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json()).then(somethings => this.setState({products:somethings}));
-    
   }
   
   render() {
@@ -33,7 +30,7 @@ class App extends Component {
       <div className="App">
         <SearchBox 
           placeholder="Search Product" 
-          handleChange={e => this.setState({searchField: e.target.value} )}/>
+          handleChange={this.handleChange}/>
         <CardList products={filteredProducts} />
         
       </div>
